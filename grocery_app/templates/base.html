@@ -14,8 +14,24 @@
             <nav>
                 <a href="/">Home</a>
                 <div>
-                    <a href="/new_store">New Store</a>
-                    <a href="/new_item">New Item</a>
+                </div>
+                <div>
+                    {% if current_user.is_authenticated %}
+                    <!-- stuff we show to logged-in users -->
+                        <a href="/new_store">New Store</a>
+                        <a href="/new_item">New Item</a>
+                        <a href="/logout">Log Out</a>
+                        <p>Here is your shopping list:</p>
+                        <ul>
+                            {% for item in list %}
+                            <li>{{item.name}}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <!-- stuff we show to logged-out users -->
+                        <a href="/signup">Sign Up</a>
+                        <a href="/login">Log In</a>
+                    {% endif %}            
                 </div>
             </nav>
             {% block content %}{% endblock %}

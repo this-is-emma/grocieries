@@ -10,7 +10,8 @@
 {% for store in all_stores %}
 <div class="store">
     <a href="/store/{{ store.id }}">{{ store.title }}</a> - 
-    {{ store.items|length }} items
+    {{ store.items|length }} items |
+    Store created by {{store.created_by.username}}
     <p><strong>Address:</strong> {{ store.address }}</p>
 </div>
 {% endfor %}

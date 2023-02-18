@@ -1,6 +1,6 @@
 # Completed Homework 3: Grocery Store
 
-Instructions 👉🏽 [here](https://github.com/Tech-at-DU/ACS-1220-Authentication-and-Associations/blob/master/Assignments/grocery-store-part-2.md)._
+Instructions 👉🏽 [here](https://github.com/Tech-at-DU/ACS-1220-Authentication-and-Associations/blob/master/Assignments/grocery-store-part-2.md).
 
 To install dependencies, run:
 

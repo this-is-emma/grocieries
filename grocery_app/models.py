@@ -50,6 +50,4 @@ class User(UserMixin, db.Model):
 shopping_list_table = db.Table('user_list',
     Column('user_id', Integer, ForeignKey(User.id), primary_key=False),
     Column('groceryitem_id', Integer, ForeignKey(GroceryItem.id), primary_key=False),
-    # db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-    # db.Column('groceryitem_id', db.Integer, db.ForeignKey('groceryitem.id'))
 )

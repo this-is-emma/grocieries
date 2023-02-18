@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if current_user.is_authenticated %}
+
+<h1>My Shopping List:</h1>
+<ul>
+    {% for item in items %}
+        <li>{{item.name}}</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+{% endblock %}

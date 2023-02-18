@@ -121,13 +121,11 @@ def item_detail(item_id):
     return render_template('item_detail.html', item=item, form=form)
 
 @main.route('/add_to_shopping_list/<item_id>', methods=['POST'])
+@login_required
 def add_to_shopping_list(item_id):
     # ... adds item to current_user's shopping list
     item = GroceryItem.query.get(item_id)
-
-    #form = GroceryItemForm(obj=item)  STUCK HEREEEEEE - FORM IS NOT DEFINED 🤔
-
-
+    form = GroceryItemForm(obj=item) 
     print(current_user.shopping_list_items)
     # TODO: If the book is not already in user's favorites, then add it,
     # commit the change to the database, and flash a success message.
@@ -139,16 +137,22 @@ def add_to_shopping_list(item_id):
         print(current_user.shopping_list_items)
         flash('Item added to shopping list...')
         return redirect(url_for('main.item_detail', item_id=item.id))
+    else:
+        flash('Item already in your list')
+        print('item already in the list...')
     return render_template('item_detail.html', item=item, form=form)
 
 
-@main.route('/shopping_list')
+@main.route('/shopping_list', methods=['GET'])
 @login_required
 def shopping_list():
+    print('Im in the shopping list route..')
     # ... get logged in user's shopping list items ...
+    print(current_user.shopping_list_items)
     list = current_user.shopping_list_items
+    print(list)
     # ... display shopping list items in a template ...
-    return render_template('home.html', list=list)
+    return render_template('shopping_list.html', list=list)
 
 # routes.py
 auth = Blueprint("auth", __name__)

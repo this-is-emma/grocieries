@@ -20,13 +20,8 @@
                     <!-- stuff we show to logged-in users -->
                         <a href="/new_store">New Store</a>
                         <a href="/new_item">New Item</a>
+                        <a href="/shopping_list">View Shopping List</a>
                         <a href="/logout">Log Out</a>
-                        <p>Here is your shopping list:</p>
-                        <ul>
-                            {% for item in list %}
-                            <li>{{item.name}}</li>
-                            {% endfor %}
-                        </ul>
                     {% else %}
                         <!-- stuff we show to logged-out users -->
                         <a href="/signup">Sign Up</a>
